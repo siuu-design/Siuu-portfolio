@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Work — Siuu Design Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;600;700&family=Playfair+Display:ital,wght@1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="header">
+  <a class="mark" href="index.html">S</a>
+  <nav>
+    <a href="index.html#about">ABOUT</a>
+    <a href="work.html">WORK</a>
+    <a href="index.html#services">SERVICES</a>
+    <a class="contact-pill" href="index.html#contact">CONTACT</a>
+  </nav>
+</header>
+
+<main class="work-section" style="padding-top:110px;">
+  <div class="work-head" style="padding-top:5vw;">
+    <div class="section-index">WORK / SELECTED PROJECTS</div>
+    <h2>Selected Projects</h2>
+    <p>Packaging, logo and branding projects.</p>
+    <div class="filters">
+      <button class="active" data-filter="package"><span class="filter-en">PACKAGING</span><span class="filter-ko">패키지 디자인</span></button>
+      <button data-filter="logo"><span class="filter-en">LOGO</span><span class="filter-ko">로고 디자인</span></button>
+      <button data-filter="ad"><span class="filter-en">AD DESIGN</span><span class="filter-ko">상세페이지</span></button>
+    </div>
+  </div>
+
+  <div class="projects">
+    <a class="project" href="project-glow.html" data-cat="package">
+      <div class="project-image"><img src="assets/ELUNEA_glow_thumb.jpg" alt="ELU:NEA Glow Collagen Jelly"></div>
+      <div class="project-caption"><div><h3>ELU:NEA Glow Collagen Jelly</h3><p>Branding · Package</p></div><span>2026</span></div>
+    </a>
+
+    <a class="project" href="project-olive.html" data-cat="package">
+      <div class="project-image"><img src="assets/Allvine_oliveoil_thumb.jpg" alt="Organic Olive Oil"></div>
+      <div class="project-caption"><div><h3>Organic Olive Oil</h3><p>Package · Art Direction</p></div><span>2026</span></div>
+    </a>
+
+    <a class="project" href="project-roro_witch's-shop.html" data-cat="ad">
+      <div class="project-image top"><img src="assets/roro_witch's shop_thumb.jpg" alt="RORO Gel nail set Packaging"></div>
+      <div class="project-caption"><div><h3>RORO Gel nail set Packaging</h3><p>Branding · Contents</p></div><span>2026</span></div>
+    </a>
+
+    <a class="project" href="project-olive.html" data-cat="package">
+      <div class="project-image"><img src="assets/olive-main.jpg" alt="Product visual"></div>
+      <div class="project-caption"><div><h3>Product Visual Direction</h3><p>Package · Branding</p></div><span>2026</span></div>
+    </a>
+
+    <a class="project" href="project-glow.html" data-cat="logo">
+      <div class="project-image"><img src="assets/glow-board.jpg" alt="Brand system"></div>
+      <div class="project-caption"><div><h3>ELU:NEA Visual System</h3><p>Logo · Branding</p></div><span>2026</span></div>
+    </a>
+
+    <div class="project placeholder" data-cat="logo">
+      <div class="project-image placeholder-box"><span>LOGO PROJECT</span></div>
+      <div class="project-caption"><div><h3>Logo Design</h3><p>Logo · Symbol</p></div><span>—</span></div>
+    </div>
+
+    <div class="project placeholder" data-cat="ad">
+      <div class="project-image placeholder-box"><span>AD DESIGN PROJECT</span></div>
+      <div class="project-caption"><div><h3>Advertising Design</h3><p>AD Design · Campaign Visual</p></div><span>—</span></div>
+    </div>
+
+    <div class="project placeholder" data-cat="package">
+      <div class="project-image placeholder-box"><span>PACKAGE PROJECT</span></div>
+      <div class="project-caption"><div><h3>Package Design</h3><p>Package · Print</p></div><span>—</span></div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <span>© 2026 Siuu Design Studio. All rights reserved.</span>
+  <div class="footer-links">
+    <a href="mailto:siuu_design@naver.com">EMAIL</a>
+    <a href="https://www.behance.net/Siuu_design" target="_blank" rel="noopener">BEHANCE</a>
+    <a href="https://www.instagram.com/siuu_design/" target="_blank" rel="noopener">INSTAGRAM</a>
+    <a href="http://pf.kakao.com/_dCxoeb" target="_blank" rel="noopener">KAKAO</a>
+    <a href="index.html">HOME</a>
+  </div>
+</footer>
+
+<script>
+const buttons = document.querySelectorAll('.filters button');
+const projects = document.querySelectorAll('.project');
+
+function applyFilter(filter){
+  projects.forEach(card => {
+    const cats = (card.dataset.cat || '').split(' ');
+    card.style.display = cats.includes(filter) ? '' : 'none';
+  });
+}
+
+applyFilter('package');
+
+buttons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    buttons.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    applyFilter(btn.dataset.filter);
+  });
+});
+</script>
+</body>
+</html>
